@@ -2,7 +2,7 @@
 
 Bulwark is a native Node.js addon that utilizes the RSA PKCS#11 API (v2.20) to perform cryptographic operations.  This module, specifically, acts as a common layer upon which various vendor-specific additions can be made. 
 
-Bulwark utilizes tjfontaine's excellent [`node-addon-layer`](https://github.com/tjfontaine/node-addon-layer) which provides a nice Node.js add-on interface for C.  This allows us to avoid writing the add-on in C++.  It also gives us a clean upgrade path forward, when the `node-addon-layer` is baked into the Node.js core.
+Bulwark utilizes tjfontaine's excellent [`node-addon-layer`](https://github.com/tjfontaine/node-addon-layer) which provides a nice Node.js add-on interface for C.  This allows us to avoid writing the add-on in C++.
 
 ## Installation
 
@@ -12,9 +12,9 @@ Installation of Bulwark is fairly straightforward.  Just use npm:
     
 ## Usage
 
-Bulwark requires a working PKCS#11 implementation in order to function properly.  Most distrubutions include binaries for [Mozilla's NSS](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS).  NSS offers a pretty good implementation of most PKCS#11 functions, and is the library I use for my own integration testing with Bulwark.
+Bulwark requires a working PKCS#11 implementation in order to function properly.  Most distrubutions include binaries for [Mozilla's NSS](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS).  NSS offers a pretty good implementation of most PKCS#11 functions, and it's the library I use for my own integration testing with Bulwark.
 
-That said, Bulkwark should work without issue on any PKCS#11 API that is compliant with the RSA's PKCS#11 standard, version 2.20.  If you notice any strange issues when using a different implementation, please open an issue and I'll try to help.
+That said, Bulkwark should work without issue on any PKCS#11 API that is compliant with the PKCS#11 standard, version 2.20.  If you notice any strange issues when using a different implementation, please open an issue and I'll try to help.
 
 Assuming you have a PKCS#11 implementation, using Bulwark is fairly straightforward:
 
@@ -39,6 +39,10 @@ bulwark.openSession(function(err, session) {
     });
 });
 ```
+
+## Testing
+
+If you wish to execute the tests for Bulwark, you'll need to have a local installation of NSS.  You can use `make install-nss` to install NSS into `/usr/local` on your system.  Assuming you have NSS installed, `make test` should just work.
 
 ## Contributing
 

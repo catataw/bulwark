@@ -4,11 +4,9 @@
 #include "shim.h"
 #include "pkcs11.h"
 
-typedef struct bulwark_ctx_s {
-    shim_persistent_t* instance;
-    shim_persistent_t* logger;
-    long chunkSize;
-} bulwark_ctx_t;
+typedef struct load_lib_ctx_s {
+    char* keyAlias;
+} load_lib_ctx_t;
 
 
 #endif /* _BATONS_H_ */

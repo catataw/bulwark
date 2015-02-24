@@ -4,3 +4,5 @@
 #include <dlfcn.h>
 
 #include "cryptoki.h"
+#include "shim.h"
+#include "uv.h"
